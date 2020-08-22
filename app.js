@@ -32,7 +32,7 @@ try {
 	mongoose.connect(
 		"mongodb+srv://matt1155:o3uxiVTetn2XLTWC@character-sheet.deiie.gcp.mongodb.net/character-sheet?retryWrites=true&w=majority",
     { useUnifiedTopology: true, useNewUrlParser: true  }
-  ).then( (res) => console.log(res))
+  ).then( (res) => console.log('Connected to Mongo database'))
   
 } catch (error) {
 	handleError(error);

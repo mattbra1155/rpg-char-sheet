@@ -5,6 +5,7 @@ const characters = require('../controllers/characterController');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     characters.getAllCharacters();
+    res.render('characters')
 });
 
 router.post('/', (req, res) => {
@@ -13,7 +14,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:characterId', (req, res) => {
-    characters.getSingleCharacter();
+    characters.getSingleCharacter(req, res  );
 })
 
 module.exports = router;
