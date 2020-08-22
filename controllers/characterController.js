@@ -1,21 +1,26 @@
 const mongoose = require("mongoose");
-const Character = require('../models/characterModel')
+const Character = require("../models/characterModel");
 
-exports.getAllCharacters = (req, res) => {
+exports.getAllCharacters = async (req, res) => {
 
-	Character.find((err, res) => {
+	await Character.find((err, res) => {
 		if (err) console.log(err);
-		console.log(res);
-	});
+
+	}).then( (respo) => {
+		console.log(respo)
+		res.json(respo)
+
+
+	}).catch( (err) => console.log(err))
 };
 
 exports.createCharacter = (req, res) => {
-	console.log(req)
+	console.log(req);
 	const characterData = new Character(req.body);
 
 	characterData.save((err, res) => {
 		if (err) console.log(err);
-		console.log('here');
+		console.log("here");
 
 		console.log(res);
 	});
@@ -24,6 +29,7 @@ exports.createCharacter = (req, res) => {
 exports.getSingleCharacter = (req, res) => {
 	const queryData = req.body;
 
-	Character.find(queryData).exec()
+	Character.find(queryData)
+		.exec()
 		.then((result) => console.log(result));
 };
