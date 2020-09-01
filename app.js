@@ -34,7 +34,7 @@ app.use('/characters', characterRouter);
 
 try {
 	mongoose.connect(
-		"mongodb+srv://" + process.env.DBuserName + ":"+ process.env.DBpassword +"@character-sheet.deiie.gcp.mongodb.net/character-sheet?retryWrites=true&w=majority",
+		"mongodb+srv://" + process.env.DB_USER + ":"+ process.env.DB_PASSWORD +"@character-sheet.deiie.gcp.mongodb.net/character-sheet?retryWrites=true&w=majority",
     { useUnifiedTopology: true, useNewUrlParser: true  }
   ).then( (res) => console.log('Connected to Mongo database'))
   
