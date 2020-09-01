@@ -1,4 +1,5 @@
 const createError = require('http-errors');
+const dotenv = require("dotenv").config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -33,7 +34,7 @@ app.use('/characters', characterRouter);
 
 try {
 	mongoose.connect(
-		"mongodb+srv://matt1155:o3uxiVTetn2XLTWC@character-sheet.deiie.gcp.mongodb.net/character-sheet?retryWrites=true&w=majority",
+		"mongodb+srv://" + process.env.DBuserName + ":"+ process.env.DBpassword +"@character-sheet.deiie.gcp.mongodb.net/character-sheet?retryWrites=true&w=majority",
     { useUnifiedTopology: true, useNewUrlParser: true  }
   ).then( (res) => console.log('Connected to Mongo database'))
   
