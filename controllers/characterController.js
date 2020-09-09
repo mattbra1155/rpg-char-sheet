@@ -15,7 +15,7 @@ exports.getAllCharacters = async (req, res) => {
 };
 
 exports.createCharacter = (req, res) => {
-	console.log(req);
+	console.log(req.body);
 	const characterData = new Character(req.body);
 
 	characterData.save((err, res) => {
